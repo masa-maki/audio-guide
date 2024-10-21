@@ -6,7 +6,7 @@ import { PlayIcon, PauseIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 
 const sound = {
-  title: 'Card Title',
+  title: 'Guide 01',
   waveType: 'music.mp3',
   imageUrl: '/bg_img.png',
   imagesize: 200,
@@ -17,6 +17,10 @@ const Home: NextPage = () => {
   const step = 0.1;
   const [play, setPlay] = useState(false);
   const [volume, setVolume] = useState(maxVol);
+  const [userLocation, setUserLocation] = useState<{
+    latitude: number;
+    longitude: number;
+  } | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   function toggleAudio(): void {
@@ -32,9 +36,26 @@ const Home: NextPage = () => {
   function handleVolume(e: React.ChangeEvent<HTMLInputElement>): void {
     const { value } = e.target;
     setVolume(Number(value));
-    // const volume = Number(value) / maxVol;
     audioRef.current.volume = volume;
   }
+
+  const getUserLocation = () => {
+    console.log("loading location...");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setUserLocation({ latitude, longitude });
+        },
+        (error) => {
+          console.error("Error get user location: ", error);
+        }
+      );
+    } else {
+      console.log("Geolocation is not supported by this browser");
+    } 
+  };
+
 
   return (
     <>
@@ -59,6 +80,23 @@ const Home: NextPage = () => {
                 <PauseIcon className="h-12 w-12" aria-hidden="true" />
               )}
             </button>
+            <div className="center">
+                <div className="btn-margin text-white text-xs">
+                  <button
+                    onClick={getUserLocation}
+                    type="button"
+                    className="font-bold py-2 px-4 rounded text-white mt-4 mb-2 bg-blue-500 hover:bg-blue-700"
+                  >
+                    Get location
+                  </button>
+                </div>
+                {userLocation && (
+                  <div className="txt-margin text-white text-xs">
+                    <p>Latitude: <span id="latitude">{userLocation.latitude}</span></p>
+                    <p>Longitude: <span id="longitude">{userLocation.longitude}</span></p>
+                 </div>
+                )}
+            </div>
             <dl className="mt-1 flex flex-col p-4 ">
               <dd className="text-lg text-white">{sound.title}</dd>
             </dl>
