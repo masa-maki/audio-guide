@@ -36,7 +36,7 @@ const Home: NextPage = () => {
   function handleVolume(e: React.ChangeEvent<HTMLInputElement>): void {
     const { value } = e.target;
     setVolume(Number(value));
-    if(audioRef){
+    if(audioRef.current){
       audioRef.current.volume = volume;
     }
   }
