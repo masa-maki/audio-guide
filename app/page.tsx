@@ -61,13 +61,16 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-zinc-900">
-        <div className="bg-accent flex h-fit MAX-w-fit flex-col rounded-lg border-2 border-cyan-700 pb-4 text-center shadow">
-          <div className="relative flex flex-col space-y-0">
+      <main className="flex h-screen sm:h-full w-full flex-col items-center justify-center p-0 sm:p-4">
+      {/* <main className=""> */}
+        {/* <div className="bg-accent flex h-fit w-full max-w-full sm:max-w-fit rounded-lg border-2 border-cyan-700 pb-4 text-center shadow"> */}
+        <div className="bg-accent flex h-screen sm:h-full w-full sm:max-w-fit rounded-lg bg-gray-100 pb-4 text-center shadow">
+          <div className="relative w-full flex flex-col space-y-0">
             <Image
               width={sound.imagesize}
               height={sound.imagesize}
-              className="mx-auto MAX-h-48 w-full flex-shrink-0 rounded-t-lg pb-2"
+              // className="mx-auto h-auto w-full sm:max-h-48 sm:max-w-fit flex-shrink-0 rounded-t-lg pb-2"
+              className="w-full h-auto flex-shrink-1 rounded-t-lg pb-2"
               src={sound.imageUrl}
               alt="waves"
             />
@@ -93,14 +96,14 @@ const Home: NextPage = () => {
                   </button>
                 </div>
                 {userLocation && (
-                  <div className="txt-margin text-white text-xs">
+                  <div className="txt-margin text-zinc-900 text-xs">
                     <p>Latitude: <span id="latitude">{userLocation.latitude}</span></p>
                     <p>Longitude: <span id="longitude">{userLocation.longitude}</span></p>
                  </div>
                 )}
             </div>
             <dl className="mt-1 flex flex-col p-4 ">
-              <dd className="text-lg text-white">{sound.title}</dd>
+              <dd className="text-lg text-zinc-900">{sound.title}</dd>
             </dl>
             <div className="mx-4 flex">
               <input
@@ -113,7 +116,7 @@ const Home: NextPage = () => {
                 onChange={(e) => handleVolume(e)}
               />
               <SpeakerWaveIcon
-                className="h-5 w-5 text-white"
+                className="h-5 w-5 text-zinc-700"
                 aria-hidden="true"
               />
             </div>
