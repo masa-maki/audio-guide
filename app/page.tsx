@@ -79,13 +79,13 @@ const Home: NextPage = () => {
                   <button
                     onClick={getUserLocation}
                     type="button"
-                    className="font-bold py-2 px-4 rounded text-white mt-4 mb-4 bg-zinc-400 hover:bg-zinc-300"
+                    className="font-bold py-2 px-4 rounded text-white mt-4 mb-6 bg-cyan-700 hover:bg-zinc-300"
                   >
                     Get location
                   </button>
                 </div>
                 {userLocation && (
-                  <div className="txt-margin text-zinc-900 text-xs">
+                  <div className="txt-margin text-cyan-700 text-xs">
                     <p>Latitude: <span id="latitude">{userLocation.latitude}</span></p>
                     <p>Longitude: <span id="longitude">{userLocation.longitude}</span></p>
                  </div>
@@ -119,7 +119,7 @@ const Home: NextPage = () => {
                 onChange={(e) => handleVolume(e)}
               />
               <SpeakerWaveIcon
-                className="h-5 w-5 text-zinc-700"
+                className="h-5 w-5 text-cyan-700"
                 aria-hidden="true"
               />
             </div>
