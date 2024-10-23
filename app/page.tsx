@@ -64,8 +64,8 @@ const Home: NextPage = () => {
       <main className="flex h-screen sm:h-full w-full flex-col items-center justify-center p-0 sm:p-4">
       {/* <main className=""> */}
         {/* <div className="bg-accent flex h-fit w-full max-w-full sm:max-w-fit rounded-lg border-2 border-cyan-700 pb-4 text-center shadow"> */}
-        <div className="bg-accent flex h-screen sm:h-full w-full sm:max-w-fit rounded-lg bg-gray-100 pb-4 text-center shadow">
-          <div className="relative w-full flex flex-col space-y-0">
+        <div className="bg-accent flex h-screen sm:h-full w-full sm:max-w-fit sm:rounded-lg bg-gray-100 pb-4 text-center shadow">
+          <div className="w-full flex flex-col space-y-0">
             <Image
               width={sound.imagesize}
               height={sound.imagesize}
@@ -74,23 +74,12 @@ const Home: NextPage = () => {
               src={sound.imageUrl}
               alt="waves"
             />
-            <button
-              onClick={toggleAudio}
-              type="button"
-              className="absolute right-5 left-0 top-[15%] m-auto w-9 rounded-full p-2 text-white shadow-sm"
-            >
-              {!play ? (
-                <PlayIcon className="h-12 w-12" aria-hidden="true" />
-              ) : (
-                <PauseIcon className="h-12 w-12" aria-hidden="true" />
-              )}
-            </button>
             <div className="center">
                 <div className="btn-margin text-white text-xs">
                   <button
                     onClick={getUserLocation}
                     type="button"
-                    className="font-bold py-2 px-4 rounded text-white mt-4 mb-2 bg-blue-500 hover:bg-blue-700"
+                    className="font-bold py-2 px-4 rounded text-white mt-4 mb-4 bg-zinc-400 hover:bg-zinc-300"
                   >
                     Get location
                   </button>
@@ -102,9 +91,23 @@ const Home: NextPage = () => {
                  </div>
                 )}
             </div>
-            <dl className="mt-1 flex flex-col p-4 ">
+            {/* <dl className="mt-1 flex flex-col p-4 ">
               <dd className="text-lg text-zinc-900">{sound.title}</dd>
-            </dl>
+            </dl> */}
+            <div className="flex flex-col items-center justify-center">
+              <button
+                onClick={toggleAudio}
+                type="button"
+                className="bg-cyan-700 rounded-full p-2 text-white shadow-s"
+                // className="absolute right-5 left-0 top-[15%] m-auto w-9 rounded-full p-2 text-white shadow-sm"
+              >
+                {!play ? (
+                  <PlayIcon className="h-8 w-8" aria-hidden="true" />
+                ) : (
+                  <PauseIcon className="h-8 w-8" aria-hidden="true" />
+                )}
+              </button>
+            </div>
             <div className="mx-4 flex">
               <input
                 type="range"
