@@ -79,7 +79,7 @@ const Home: NextPage = () => {
                   <button
                     onClick={getUserLocation}
                     type="button"
-                    className="font-bold py-2 px-4 rounded text-white mt-4 mb-6 bg-cyan-700 hover:bg-zinc-300"
+                    className="font-bold py-2 px-4 rounded text-white mt-4 mb-6 bg-cyan-700 hover:bg-cyan-600"
                   >
                     Get location
                   </button>
