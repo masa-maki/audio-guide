@@ -1,6 +1,6 @@
 // 'use client';
 import React from 'react'
-import { deleteUuidCookie, loginAction } from "./page";
+import { deleteUuidCookie, loginAction } from "./_page";
 
 export const ButtonTest = () => {
 	return (
