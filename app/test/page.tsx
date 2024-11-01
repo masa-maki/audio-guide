@@ -48,7 +48,7 @@ const Home: NextPage = () => {
       <div className="bg-accent flex h-screen sm:h-full w-full sm:max-w-fit sm:rounded-lg bg-gray-100 pb-4 text-center shadow">
         <div className="w-full flex flex-col space-y-0 p-8">
           <h1 className="text-xl">TEST page</h1>
-          <ButtonTest />
+          {/* <ButtonTest /> */}
         </div>
       </div>
     </main>
