@@ -6,7 +6,7 @@ import { PlayIcon, PauseIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 
 interface GuideData {
-  audioFile: string,
+  title: string,
   audioFile: string,
   imageUrl: string;
 }
@@ -29,14 +29,28 @@ const Home: NextPage = () => {
       audioRef.current.src = guide.audioFile;
     }
     const audio = audioRef.current;
-    audio.addEventListener('loadedmetadata', () => setDuration(audio.duration));
-    audio.addEventListener('timeupdate', () => setCurrentTime(audio.currentTime));
+    if (!audio) return;
+
+    const handleLoadedMetadata = () => setDuration(audio.duration);
+    const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
+
+    audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+    audio.addEventListener('timeupdate', handleTimeUpdate);
 
     return () => {
-      audio.removeEventListener('loadedmetadata', () => setDuration(audio.duration));
-      audio.removeEventListener('timeupdate', () => setCurrentTime(audio.currentTime));
+      audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      audio.removeEventListener('timeupdate', handleTimeUpdate);
     };
   }, []);
+
+  //   audio.addEventListener('loadedmetadata', () => setDuration(audio.duration));
+  //   audio.addEventListener('timeupdate', () => setCurrentTime(audio.currentTime));
+
+  //   return () => {
+  //     audio.removeEventListener('loadedmetadata', () => setDuration(audio.duration));
+  //     audio.removeEventListener('timeupdate', () => setCurrentTime(audio.currentTime));
+  //   };
+  // }, []);
 
   const togglePlayPause = () => {
     const audio = audioRef.current;
