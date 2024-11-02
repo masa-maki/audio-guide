@@ -80,7 +80,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <main className="flex min-h-screen min-h-dvh w-full flex-col items-center justify-center p-0 bg-neutral-950 text-white">
+      <main className="flex min-h-dvh sm:min-h-screen w-full flex-col items-center justify-center p-0 text-white">
         <div className="flex h-full sm:max-h-[812px] w-full sm:max-w-[375px] sm:rounded-lg text-center shadow bg-[#2B1A36]">
           <div className="w-full flex flex-col space-y-0">
             <section id="image" className="w-full h-4/6 overflow-hidden rounded-b-3xl">
