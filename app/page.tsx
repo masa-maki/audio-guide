@@ -1,7 +1,7 @@
 'use client';
 
 import { type NextPage } from 'next';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, ChangeEvent } from 'react';
 // import { SpeakerWaveIcon } from '@heroicons/react/24/outline';
 import { PlayIcon, PauseIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
@@ -56,11 +56,11 @@ const Home: NextPage = () => {
     setIsPlaying(!isPlaying);
   };
 
-  const handleSeek = (e) => {
+  const handleSeek = (e: ChangeEvent<HTMLInputElement>) => {
     const audio = audioRef.current;
     if (!audio) return;
     
-    const seekTime = (e.target.value / 100) * duration;
+    const seekTime = (Number(e.target.value) / 100) * duration;
     audio.currentTime = seekTime;
     setCurrentTime(seekTime);
   };
