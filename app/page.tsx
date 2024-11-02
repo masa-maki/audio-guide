@@ -1,4 +1,5 @@
 'use client';
+
 import { type NextPage } from 'next';
 import React, { useEffect, useRef, useState } from 'react';
 // import { SpeakerWaveIcon } from '@heroicons/react/24/outline';
@@ -22,7 +23,7 @@ const Home: NextPage = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [duration, setDuration] = useState<number>(0);
   const [currentTime, setCurrentTime] = useState<number>(0);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     if (audioRef.current && guide.audioFile) {
@@ -43,17 +44,10 @@ const Home: NextPage = () => {
     };
   }, []);
 
-  //   audio.addEventListener('loadedmetadata', () => setDuration(audio.duration));
-  //   audio.addEventListener('timeupdate', () => setCurrentTime(audio.currentTime));
-
-  //   return () => {
-  //     audio.removeEventListener('loadedmetadata', () => setDuration(audio.duration));
-  //     audio.removeEventListener('timeupdate', () => setCurrentTime(audio.currentTime));
-  //   };
-  // }, []);
-
   const togglePlayPause = () => {
     const audio = audioRef.current;
+    if (!audio) return;
+
     if (isPlaying) {
       audio.pause();
     } else {
@@ -64,17 +58,21 @@ const Home: NextPage = () => {
 
   const handleSeek = (e) => {
     const audio = audioRef.current;
+    if (!audio) return;
+    
     const seekTime = (e.target.value / 100) * duration;
     audio.currentTime = seekTime;
     setCurrentTime(seekTime);
   };
 
-  const skipTime = (seconds) => {
+  const skipTime = (seconds: number) => {
     const audio = audioRef.current;
+    if (!audio) return;
+  
     audio.currentTime += seconds;
   };
 
-  const formatTime = (time) => {
+  const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
@@ -114,7 +112,7 @@ const Home: NextPage = () => {
               </div>
               <div id="player" className="pt-8 flex flex-row gap-x-4 items-center justify-center">
                 <button 
-                  onClick={() => skipTime(-10)} 
+                  onClick={ () => skipTime(-10) } 
                   className="bg-white rounded-full p-2 text-white shadow-s"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 14 14" fill="none">
@@ -133,7 +131,7 @@ const Home: NextPage = () => {
                   )}
                 </button>
                 <button 
-                  onClick={() => skipTime(10)} 
+                  onClick={ () => skipTime(10) } 
                   className="bg-white rounded-full p-2 text-white shadow-s"
                 >
                   <svg width="28" height="28" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -145,7 +143,7 @@ const Home: NextPage = () => {
             </section>
           </div>
         </div>
-        <audio ref={audioRef} src={guide.audio} />
+        <audio ref={audioRef} src={guide.audioFile} />
       </main>
     </>
   );
