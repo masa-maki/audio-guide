@@ -5,7 +5,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { PlayIcon, PauseIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 
-const guide = {
+interface GuideData {
+  audioFile: string,
+  audioFile: string,
+  imageUrl: string;
+}
+
+const guide: GuideData = {
   title: 'Guide 01',
   audioFile: './tenkai-yashiro.mp3',
   // imageUrl: '/4584224_m.jpg',
@@ -13,10 +19,10 @@ const guide = {
 };
 
 const Home: NextPage = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [duration, setDuration] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
-  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [duration, setDuration] = useState<number>(0);
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     if (audioRef.current && guide.audioFile) {
