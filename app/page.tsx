@@ -80,8 +80,8 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <main className="flex h-screen sm:h-full w-full flex-col items-center justify-center p-0 bg-[#2B1A36] text-white">
-        <div className="flex h-full sm:h-full w-full sm:max-w-fit sm:rounded-lg text-center shadow">
+      <main className="flex min-h-screen min-h-dvh w-full flex-col items-center justify-center p-0 bg-neutral-950 text-white">
+        <div className="flex h-full sm:max-h-[812px] w-full sm:max-w-[375px] sm:rounded-lg text-center shadow bg-[#2B1A36]">
           <div className="w-full flex flex-col space-y-0">
             <section id="image" className="w-full h-4/6 overflow-hidden rounded-b-3xl">
             {/*style={{width: "100%", height: "70%", borderRadius: "0 0 20px 20px", overflow: "hidden"}*/}
