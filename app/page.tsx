@@ -115,7 +115,7 @@ const Home: NextPage = () => {
               <Image
                 width={500}
                 height={500}
-                className="w-full h-full flex-shrink-1 p-0 object-cover"
+                className="w-full h-full flex-shrink-1 p-0 object-cover object-top"
                 src={guide.imageUrl}
                 alt={guide.title}
               />
