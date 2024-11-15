@@ -110,7 +110,7 @@ const Home: NextPage = () => {
         <div className="w-full h-full flex shadow bg-[#2B1A36]">
           <div className="w-full h-full flex flex-col space-y-0">*/}
 
-            <section id="image" className="w-full basis-7/12 overflow-hidden rounded-b-3xl bg-[#FFFFFF]">
+            <section id="image" className="w-full basis-7/12 overflow-hidden rounded-b-3xl">
             {/*<section id="image" className="w-full basis-7/12 h-20 items-stretch text-black bg-[#FFFFFF]">*/}
               <Image
                 width={500}
@@ -121,9 +121,9 @@ const Home: NextPage = () => {
               />
             </section>
             
-            <section id="information" className="flex w-full basis-5/12 flex-col justify-items-center justify-center"> 
+            <section id="information" className="flex w-full basis-5/12 flex-col justify-items-center justify-center gap-y-8"> 
             {/* <section id="information" className="flex w-full items-stretch flex-1">*/}
-              <h2 className="sm:mt-1 flex flex-col p-1 sm:mb-8 text-xl sm:text-2xl">{guide.title}</h2>
+              <h2 className="sm:mt-1 flex flex-col p-1 text-xl sm:text-2xl">{guide.title}</h2>
 
               <div>
                 <div className="flex mx-4 mb-2">
@@ -138,7 +138,7 @@ const Home: NextPage = () => {
                 </div>
                 <p>{formatTime(currentTime)}</p>
               </div>
-              <div id="player" className="pt-8 flex flex-row gap-x-4 items-center justify-center">
+              <div id="player" className="flex flex-row gap-x-4 items-center justify-center">
                 <button 
                   onClick={ () => skipTime(-10) } 
                   className="bg-white rounded-full p-2 text-white shadow-s"
