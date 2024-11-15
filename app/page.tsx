@@ -99,7 +99,7 @@ const Home: NextPage = () => {
       <main className="flex items-center justify-center min-h-dvh w-full flex-col p-0 text-white overflow-hidden">
         <div className="flex h-full sm:max-h-[812px] w-full sm:max-w-[375px] sm:rounded-lg text-center shadow bg-[#2B1A36]">
           <div className="w-full flex flex-col space-y-0">
-            <section id="image" className="w-full basis-7/12 overflow-hidden rounded-b-3xl">
+            <section id="image" className="w-full h-3/5 overflow-hidden rounded-b-3xl bg-[#FFFFFF]">
             {/*style={{width: "100%", height: "70%", borderRadius: "0 0 20px 20px", overflow: "hidden"}*/}
               <Image
                 width={500}
@@ -110,7 +110,7 @@ const Home: NextPage = () => {
               />
             </section>
             
-            <section id="information" className="flex w-full basis-5/12 flex-col justify-items-center justify-center">
+            <section id="information" className="flex w-full h-2/5 flex-col justify-items-center justify-center">
               <h2 className="mt-1 flex flex-col p-1 mb-8 text-2xl">{guide.title}</h2>
 
               <div>
