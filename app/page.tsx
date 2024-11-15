@@ -123,7 +123,7 @@ const Home: NextPage = () => {
             
             <section id="information" className="flex w-full basis-5/12 flex-col justify-items-center justify-center"> 
             {/* <section id="information" className="flex w-full items-stretch flex-1">*/}
-              <h2 className="mt-1 flex flex-col p-1 mb-8 text-2xl">{guide.title}</h2>
+              <h2 className="sm:mt-1 flex flex-col p-1 sm:mb-8 text-xl sm:text-2xl">{guide.title}</h2>
 
               <div>
                 <div className="flex mx-4 mb-2">
