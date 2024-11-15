@@ -1,6 +1,8 @@
 'use client';
 
 import { type NextPage } from 'next';
+import { useSearchParams } from "next/navigation";
+// import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState, ChangeEvent } from 'react';
 // import { SpeakerWaveIcon } from '@heroicons/react/24/outline';
 import { PlayIcon, PauseIcon } from '@heroicons/react/20/solid';
@@ -12,11 +14,21 @@ interface GuideData {
   imageUrl: string;
 }
 
-const guide: GuideData = {
-  title: 'Guide 01',
-  audioFile: './tenkai-yashiro.mp3',
-  // imageUrl: '/4584224_m.jpg',
-  imageUrl: '/iwato-image.png',
+interface GuideDataLib {
+  [key: string]: GuideData;
+}
+
+const Library: GuideDataLib = {
+  "Default": {
+    title: 'Guide 01',
+    audioFile: '/tenkai-yashiro.mp3',
+    imageUrl: '/iwato-image.png',
+  },
+  "Yasukawara": {
+    title: 'Guide 02',
+    audioFile: '/zinja-ne.mp3',
+    imageUrl: '/Yasukawara.png',
+  }
 };
 
 const Home: NextPage = () => {
@@ -24,6 +36,12 @@ const Home: NextPage = () => {
   const [duration, setDuration] = useState<number>(0);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  // get URL query and load appropriate data
+  const searchParams = useSearchParams();
+  const guideKey: string = searchParams.get("guideId") || "Default";
+  const guide: GuideData = Library[guideKey] || Library["Default"];
+
 
   useEffect(() => {
     if (audioRef.current && guide.audioFile) {
