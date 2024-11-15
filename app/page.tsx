@@ -96,11 +96,22 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <main className="flex items-center justify-center min-h-dvh w-full flex-col p-0 text-white overflow-hidden">
+    {/*<
+      <div className="main h-screen flex flex-col">
+        <div className="bg-white h-4/6">
+        </div>
+        <div className="bg-black h-2/6">
+        </div>
+      </div>*/}
+      <main className="flex items-center justify-center h-screen min-h-dvh w-full flex-col p-0 text-white">
         <div className="flex h-full sm:max-h-[812px] w-full sm:max-w-[375px] sm:rounded-lg text-center shadow bg-[#2B1A36]">
           <div className="w-full flex flex-col space-y-0">
-            <section id="image" className="w-full h-3/5 overflow-hidden rounded-b-3xl bg-[#FFFFFF]">
-            {/*style={{width: "100%", height: "70%", borderRadius: "0 0 20px 20px", overflow: "hidden"}*/}
+      {/* <main className="flex items-center justify-center h-screen h-full w-full flex-col p-0 text-white">
+        <div className="w-full h-full flex shadow bg-[#2B1A36]">
+          <div className="w-full h-full flex flex-col space-y-0">*/}
+
+            <section id="image" className="w-full basis-7/12 overflow-hidden rounded-b-3xl bg-[#FFFFFF]">
+            {/*<section id="image" className="w-full basis-7/12 h-20 items-stretch text-black bg-[#FFFFFF]">*/}
               <Image
                 width={500}
                 height={500}
@@ -110,7 +121,8 @@ const Home: NextPage = () => {
               />
             </section>
             
-            <section id="information" className="flex w-full h-2/5 flex-col justify-items-center justify-center">
+            <section id="information" className="flex w-full basis-5/12 flex-col justify-items-center justify-center"> 
+            {/* <section id="information" className="flex w-full items-stretch flex-1">*/}
               <h2 className="mt-1 flex flex-col p-1 mb-8 text-2xl">{guide.title}</h2>
 
               <div>
