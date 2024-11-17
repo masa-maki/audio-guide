@@ -103,8 +103,8 @@ const Home: NextPage = () => {
         <div className="bg-black h-2/6">
         </div>
       </div>*/}
-      <main className="flex items-center justify-center h-screen min-h-dvh w-full flex-col p-0 text-white">
-        <div className="flex h-full min-h-dvh sm:max-h-[812px] w-full sm:max-w-[375px] sm:rounded-lg text-center shadow bg-[#2B1A36]">
+      <main className="flex items-center justify-center h-screen h-dvh w-full flex-col p-0 text-white">
+        <div className="flex h-full h-dvh sm:max-h-[812px] w-full sm:max-w-[375px] sm:rounded-lg text-center shadow bg-[#2B1A36]">
           <div className="w-full flex flex-col space-y-0">
       {/* <main className="flex items-center justify-center h-screen h-full w-full flex-col p-0 text-white">
         <div className="w-full h-full flex shadow bg-[#2B1A36]">
