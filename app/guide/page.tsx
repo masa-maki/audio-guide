@@ -128,6 +128,7 @@ const Home: NextPage = () => {
             </section>
             
             <section id="information" className="flex w-full basis-4/12 flex-col justify-items-center py-4 gap-y-2"> 
+
             {/* <section id="information" className="flex w-full items-stretch flex-1">*/}
               <div className="mx-4 mb-2 sm:mt-1 w-full">
                 <h2 className="text-left text-xl sm:text-xl">{guide.title}</h2>
@@ -137,7 +138,7 @@ const Home: NextPage = () => {
                 <div className="flex mx-4">
                   <input
                     type="range"
-                    className="mx-auto w-full accent-white"
+                    className="mx-auto w-full accent-white bg-[#2B1A36]"
                     min={0}
                     max={duration}
                     onChange={handleSeek}
@@ -179,10 +180,13 @@ const Home: NextPage = () => {
 
                 </button>
               </div>
-              <div className="mt-6 flex gap-x-4 mx-4 text-base justify-between">
+              {/* <div className="mt-6 mx-4 text-base">
+                <p className="text-left">This shrine is ...</p>
+              </div> */}
+              {/* <div className="mt-6 flex gap-x-4 mx-4 text-base justify-between">
                 <button className="font-normal px-8 py-2 w-full border border-white rounded-full">Read in text</button>
                 <button className="font-normal px-8 py-2 w-full border border-white rounded-full">Guide list</button>
-              </div>
+              </div> */}
             </section>
           </div>
         </div>
